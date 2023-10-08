@@ -46,7 +46,7 @@ export default {
     },
 
     deleteContact() {
-      this.$emit.("delete:contact", this.contactLocal.id)
+      this.$emit("delete:contact", this.contactLocal.id);
     }
 
   }
@@ -111,20 +111,22 @@ export default {
           name="favorite"
           type="checkbox"
       />
-      <label class="form-check-label" for="favorite">\
+      <label class="form-check-label" for="favorite">
         <strong>Liên hệ yêu thích</strong>
       </label>
     </div>
 
-    <div>
-      <button class="btn btn-primary">Lưu</button>
+    <div class="mt-2">
+      <button class=" btn btn-primary">
+        <i class="fa-solid fa-floppy-disk"></i> Lưu
+      </button>
       <button
           v-if="contactLocal._id"
-          class="ml-2 btn btn-danger"
+          class="ms-2 btn btn-danger"
           type="button"
           @click="deleteContact"
       >
-        Xóa
+        <i class="fa-solid fa-trash"></i>  Xóa
       </button>
     </div>
 
