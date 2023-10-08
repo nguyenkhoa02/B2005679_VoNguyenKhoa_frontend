@@ -10,7 +10,7 @@ export default {
 
 <template>
   <div id="app">
-    <AppHeader class="container"/>
+    <AppHeader class="container-fluid"/>
 
     <div class="container">
       <router-view></router-view>
@@ -19,14 +19,5 @@ export default {
 </template>
 
 <style>
-.page {
-  max-width: 600px;
-  margin: auto;
-}
-*::before{
-  font-weight: unset;
-}
-#app {
-  display: unset;
-}
+
 </style>
