@@ -10,10 +10,10 @@ class ContactService {
     }
 
     async create(data) {
-        return (await this.api.delete("/")).data;
+        return (await this.api.post("/", data)).data;
     }
 
-    async deleteAll(data) {
+    async deleteAll() {
         return (await this.api.delete("/")).data;
     }
 
