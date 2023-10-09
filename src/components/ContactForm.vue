@@ -1,11 +1,9 @@
 <script>
 import * as yup from "yup";
 import {ErrorMessage, Field, Form} from "vee-validate";
-import InputSearch from "@/components/InputSearch.vue";
 
 export default {
   components: {
-    InputSearch,
     Form,
     Field,
     ErrorMessage,
@@ -33,7 +31,7 @@ export default {
       phone: yup
           .string()
           .matches(/(09|03|07|08|05)+([0-9]{8}\b)/g,
-              "Số điện thoại khoobng hợp lệ.")
+              "Số điện thoại không hợp lệ.")
     });
     return {
       contactLocal: this.contact,
@@ -41,17 +39,19 @@ export default {
     }
   },
   methods: {
+    deleteContact() {
+      this.$emit("delete:contact", this.contactLocal.id);
+    },
+
     submitContact() {
       this.$emit("submit:contact", this.contactLocal);
     },
 
-    deleteContact() {
-      this.$emit("delete:contact", this.contactLocal.id);
+    resetContact() {
+      this.contactLocal = this.contact;
     }
 
   }
-
-
 };
 
 </script>
@@ -126,7 +126,15 @@ export default {
           type="button"
           @click="deleteContact"
       >
-        <i class="fa-solid fa-trash"></i>  Xóa
+        <i class="fa-solid fa-trash"></i> Xóa
+      </button>
+      <button
+          v-else
+          class="ms-2 btn btn-danger"
+          type="button"
+          @click="resetContact"
+      >
+        <i class="fa-solid fa-rotate-right"></i> Làm mới
       </button>
     </div>
 

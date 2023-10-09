@@ -70,7 +70,9 @@ export default {
     },
 
     goToAddContact() {
-      this.$router.push({name: "contact.add"});
+      this.$router.push({
+        name: "contact.add"
+      });
     }
   },
 
@@ -132,7 +134,7 @@ export default {
           name: 'contact.edit',
           params: { id: activeContact._id }
         }">
-          <span class="mt-2 badge badge-warning">
+          <span class="mt-2 badge text-bg-warning">
             <i class="fas fa-edit"></i> Hiệu chỉnh
           </span>
         </router-link>
